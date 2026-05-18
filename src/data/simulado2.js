@@ -126,7 +126,7 @@ export const simulado2Questions = [
       "CORRETO! 3 meses recentes em Redshift para queries rápidas, dados de 3-6 meses no S3 acessíveis via Spectrum.",
       "ERRADO. Não é possível UNLOAD direto para Glacier. Spectrum não consulta dados em Glacier.",
       "ERRADO. Glacier Flexible Retrieval é mais caro que Deep Archive para dados raramente acessados.",
-      "CORRETO! Deep Archive é o mais barato para dados que não serão acessados mas devem ser retidos. NOTA: Pode marcar opção A ou D — ambas estão corretas."
+      "CORRETO! Deep Archive é o mais barato para dados que não serão acessados mas devem ser retidos."
     ]
   },
   {
@@ -444,7 +444,7 @@ export const simulado2Questions = [
     explanations: [
       "CORRETO! Full Load + CDC migra dados existentes E captura mudanças contínuas — ideal para sincronização contínua.",
       "ERRADO. Lambda diário é batch, não captura mudanças contínuas em tempo real.",
-      "CORRETO! Parquet é colunar — armazenamento compacto e queries mais rápidas. NOTA: Marque uma opção CDC + uma de formato.",
+      "CORRETO! Parquet é colunar — armazenamento compacto e queries mais rápidas.",
       "ERRADO. CSV é menos eficiente que Parquet para queries analíticas.",
       "ERRADO. CDC Only não migra dados existentes — perde o estado inicial."
     ]
@@ -537,7 +537,7 @@ export const simulado2Questions = [
       "ERRADO. S3 Standard é mais caro que IA para acesso pouco frequente.",
       "ERRADO. Intelligent-Tiering tem cobranças de monitoramento desnecessárias quando padrão de acesso é claro.",
       "CORRETO! Glacier Flexible Retrieval recupera em horas (atende 24h), bem mais barato que Standard. Lifecycle automatiza tudo.",
-      "CORRETO! S3 Standard-IA para acesso ocasional + Athena. NOTA: Marque essa OU outra similar.",
+      "CORRETO! S3 Standard-IA para acesso ocasional + Athena.",
       "ERRADO. Instant Retrieval é caro demais para dados raramente acessados — Flexible Retrieval atende o SLA de 24h por menos."
     ]
   },
@@ -555,7 +555,7 @@ export const simulado2Questions = [
     correct: [0, 1],
     explanations: [
       "CORRETO! Identificar PID das sessões que mantêm locks é o primeiro passo.",
-      "CORRETO! pg_terminate_backend(pid) encerra a sessão e libera o lock. NOTA: Marque ambas.",
+      "CORRETO! pg_terminate_backend(pid) encerra a sessão e libera o lock.",
       "ERRADO. EXPLAIN é para otimização, não libera locks ativos.",
       "ERRADO. REINDEX reconstrói índices, não libera locks.",
       "ERRADO. VACUUM limpa espaço, não libera locks ativos de outras sessões."
@@ -861,7 +861,7 @@ export const simulado2Questions = [
       "ERRADO. Lake Formation adiciona complexidade — não otimiza performance diretamente.",
       "ERRADO. Archive não otimiza queries (não pode consultar Glacier diretamente).",
       "CORRETO! Mesma região = sem latência inter-region.",
-      "CORRETO! Parquet é colunar (escaneia menos dados) e suporta predicate pushdown — drástica melhoria. NOTA: Marque ambas."
+      "CORRETO! Parquet é colunar (escaneia menos dados) e suporta predicate pushdown — drástica melhoria."
     ]
   },
   {
@@ -880,7 +880,7 @@ export const simulado2Questions = [
       "ERRADO. Mais índices PIORA escritas — não é solução para write-intensive.",
       "CORRETO! Vertical scaling é solução direta para falta de CPU/memória.",
       "ERRADO. Cache ajuda leituras, não escritas (que é o gargalo aqui).",
-      "CORRETO! Performance Insights identifica queries problemáticas para otimização. NOTA: Marque ambas.",
+      "CORRETO! Performance Insights identifica queries problemáticas para otimização.",
       "ERRADO. Reboots não resolvem alta CPU — só apagam métricas momentaneamente."
     ]
   },
@@ -948,7 +948,7 @@ export const simulado2Questions = [
     explanations: [
       "CORRETO! EventBridge → Glue Workflow com Crawler (detecta mudanças) + Spark Job (transforma e carrega). Solução adaptável.",
       "ERRADO. Sem Crawler, schema changes não são detectadas automaticamente.",
-      "CORRETO! Lambda trigger por S3 upload + crawler + Spark job é arquitetura event-driven adaptável. NOTA: Marque uma das corretas.",
+      "CORRETO! Lambda trigger por S3 upload + crawler + Spark job é arquitetura event-driven adaptável.",
       "ERRADO. EMR + Hive tem overhead de cluster e não detecta schema changes nativamente.",
       "ERRADO. Esta opção mistura conceitos — não é a mais elegante."
     ]
@@ -1090,7 +1090,7 @@ export const simulado2Questions = [
       "ERRADO. Flex é para jobs não-urgentes — pode ser interrompido. Não é solução de performance.",
       "ERRADO. Express One Zone é single-AZ — não resolve scan completo.",
       "CORRETO! Worker type maior dá mais CPU/memória — Spark roda mais rápido.",
-      "CORRETO! Particionar por data permite predicate pushdown — escaneia só as partições relevantes. NOTA: Marque ambas.",
+      "CORRETO! Particionar por data permite predicate pushdown — escaneia só as partições relevantes.",
       "ERRADO. DynamicFrame não evita scan completo por si só."
     ]
   },
@@ -1129,7 +1129,7 @@ export const simulado2Questions = [
       "ERRADO. Conexão Athena-QuickSight é setup inicial — falha de permissão é diferente.",
       "CORRETO! Se S3 está com KMS, QuickSight precisa permissão para decriptar.",
       "CORRETO! QuickSight precisa permissão explícita para acessar o bucket.",
-      "CORRETO! IAM do usuário precisa permissões de leitura/escrita no bucket Athena results. NOTA: Marque as três corretas.",
+      "CORRETO! IAM do usuário precisa permissões de leitura/escrita no bucket Athena results.",
       "ERRADO. Otimização de query não causa erro de permissão.",
       "ERRADO. Catalog não causa erro de permissão — causa erro de schema."
     ]

@@ -547,10 +547,7 @@ function QuizScreen({ simulado, onBack, onFinish }) {
         minHeight: "100vh",
         background:
           "linear-gradient(135deg, #0a0f1a 0%, #1a1f35 50%, #0d1525 100%)",
-        padding: toastVisible
-          ? "100px clamp(12px, 3vw, 24px) 20px"
-          : "20px clamp(12px, 3vw, 24px)",
-        transition: "padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        padding: "20px clamp(12px, 3vw, 24px)",
       }}
     >
       <div style={{ maxWidth: 980, margin: "0 auto" }}>
@@ -963,21 +960,21 @@ function QuizScreen({ simulado, onBack, onFinish }) {
             </>
           ) : (
             <>
-              {/* Fixed toast at top of viewport - auto-dismisses after 3.5s */}
+              {/* Discreet toast in bottom-right corner — auto-dismisses after 3.5s */}
               <div
                 style={{
                   position: "fixed",
-                  top: 16,
-                  left: "50%",
+                  bottom: 20,
+                  right: 20,
                   zIndex: 1000,
-                  width: "calc(100% - 32px)",
-                  maxWidth: 720,
+                  width: "calc(100% - 40px)",
+                  maxWidth: 360,
                   opacity: toastVisible ? 1 : 0,
                   transform: toastVisible
-                    ? "translate(-50%, 0)"
-                    : "translate(-50%, -24px)",
+                    ? "translate(0, 0)"
+                    : "translate(20px, 0)",
                   transition:
-                    "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                    "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                   pointerEvents: toastVisible ? "auto" : "none",
                 }}
               >
@@ -988,27 +985,27 @@ function QuizScreen({ simulado, onBack, onFinish }) {
                       : "linear-gradient(135deg, rgba(230, 57, 70, 0.98) 0%, rgba(193, 18, 31, 0.98) 100%)",
                     backdropFilter: "blur(24px)",
                     WebkitBackdropFilter: "blur(24px)",
-                    borderRadius: 14,
-                    padding: "14px 20px",
+                    borderRadius: 12,
+                    padding: "12px 14px",
                     display: "flex",
                     alignItems: "center",
-                    gap: 14,
+                    gap: 12,
                     boxShadow: isCorrect
-                      ? "0 16px 48px rgba(34, 197, 94, 0.4), 0 0 0 1px rgba(34, 197, 94, 0.5)"
-                      : "0 16px 48px rgba(230, 57, 70, 0.4), 0 0 0 1px rgba(230, 57, 70, 0.5)",
+                      ? "0 12px 36px rgba(34, 197, 94, 0.35), 0 0 0 1px rgba(34, 197, 94, 0.4)"
+                      : "0 12px 36px rgba(230, 57, 70, 0.35), 0 0 0 1px rgba(230, 57, 70, 0.4)",
                   }}
                 >
                   <div
                     style={{
                       flexShrink: 0,
-                      width: 36,
-                      height: 36,
+                      width: 30,
+                      height: 30,
                       borderRadius: "50%",
                       background: "rgba(255, 255, 255, 0.25)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: 18,
+                      fontSize: 15,
                       fontWeight: 800,
                       color: "#fff",
                     }}
@@ -1018,7 +1015,7 @@ function QuizScreen({ simulado, onBack, onFinish }) {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div
                       style={{
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: 800,
                         color: "#fff",
                         letterSpacing: 0.2,
@@ -1028,9 +1025,10 @@ function QuizScreen({ simulado, onBack, onFinish }) {
                     </div>
                     <div
                       style={{
-                        fontSize: 13,
+                        fontSize: 12,
                         color: "rgba(255, 255, 255, 0.92)",
                         marginTop: 2,
+                        lineHeight: 1.4,
                       }}
                     >
                       {isCorrect
@@ -1049,14 +1047,14 @@ function QuizScreen({ simulado, onBack, onFinish }) {
                     aria-label="Fechar"
                     style={{
                       flexShrink: 0,
-                      width: 28,
-                      height: 28,
+                      width: 24,
+                      height: 24,
                       borderRadius: 6,
                       background: "rgba(255, 255, 255, 0.18)",
                       color: "#fff",
                       border: "none",
                       cursor: "pointer",
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: 700,
                       display: "flex",
                       alignItems: "center",

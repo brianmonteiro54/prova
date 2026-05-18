@@ -36,7 +36,7 @@ export const simulado3Questions = [
       "ERRADO. Encoding em Data Wrangler é transformação para ML, mas modelo ainda usa PII (encoded).",
       "ERRADO. OpenSearch é overkill — apenas para análise/busca, não para entregar a ML.",
       "ERRADO. EMR + scripts customizados é alto overhead.",
-      "CORRETO! S3 + SSE-KMS é solução padrão e econômica para criptografia em repouso. NOTA: Marque ambas.",
+      "CORRETO! S3 + SSE-KMS é solução padrão e econômica para criptografia em repouso.",
       "CORRETO! DataBrew tem feature nativa para detecção e mascaramento de PII sem código — econômico."
     ]
   },
@@ -54,7 +54,7 @@ export const simulado3Questions = [
     correct: [0, 1],
     explanations: [
       "CORRETO! Mais shards = mais throughput total disponível para consumir.",
-      "CORRETO! Exponential backoff lida com throttling temporário sem perder mensagens. NOTA: Marque ambas.",
+      "CORRETO! Exponential backoff lida com throttling temporário sem perder mensagens.",
       "ERRADO. Tamanho da EC2 não muda os limits de throughput por shard.",
       "ERRADO. Enhanced fan-out ajuda quando há muitos consumers, não quando shards estão saturados.",
       "ERRADO. Monitoring observa, não resolve."
@@ -373,7 +373,7 @@ export const simulado3Questions = [
       "CORRETO! Full transaction log é pré-requisito do CDC para SQL Server.",
       "ERRADO. SCT converte schema entre engines diferentes — SQL Server → SQL Server não precisa.",
       "ERRADO. DataSync transfere arquivos, não dados de banco com replicação.",
-      "CORRETO! Full Load + CDC = migração inicial + sincronização contínua. NOTA: Marque ambas."
+      "CORRETO! Full Load + CDC = migração inicial + sincronização contínua."
     ]
   },
   {
@@ -393,7 +393,7 @@ export const simulado3Questions = [
       "ERRADO. Cloud9 é IDE, não executa código agendado em produção.",
       "ERRADO. CDK é IaC, não executa código.",
       "ERRADO. CloudShell é shell interativo, não para execução agendada.",
-      "CORRETO! Lambda executa Python serverless. NOTA: Marque ambas (EventBridge + Lambda)."
+      "CORRETO! Lambda executa Python serverless."
     ]
   },
   {
@@ -445,7 +445,7 @@ export const simulado3Questions = [
       "CORRETO! IAM role em A com permissão para o bucket de B.",
       "ERRADO. Direct Connect é para conectividade física on-prem-AWS, não cross-account.",
       "CORRETO! Bucket policy em B explicitamente grant access ao role de A.",
-      "CORRETO! Crawler precisa apontar para o bucket cross-account. NOTA: Marque as três corretas (B, D, E).",
+      "CORRETO! Crawler precisa apontar para o bucket cross-account.",
       "ERRADO. VPC Endpoint é para acesso privado dentro de uma conta."
     ]
   },
@@ -555,7 +555,7 @@ export const simulado3Questions = [
       "CORRETO! SplitShard divide shard em dois — aumenta throughput total.",
       "ERRADO. Step Scaling não existe em Kinesis Data Streams.",
       "ERRADO. Firehose é diferente do Data Streams — perde funcionalidades.",
-      "CORRETO! Enhanced Fan-Out dá 2 MB/s dedicado por consumer, evitando saturação. NOTA: Marque ambas.",
+      "CORRETO! Enhanced Fan-Out dá 2 MB/s dedicado por consumer, evitando saturação.",
       "ERRADO. Diminuir shards piora throughput."
     ]
   },
@@ -895,7 +895,7 @@ export const simulado3Questions = [
       "CORRETO! Full transaction log é pré-requisito do CDC para SQL Server.",
       "ERRADO. SCT é para mudança entre engines diferentes.",
       "ERRADO. DataSync transfere arquivos.",
-      "CORRETO! Full Load + CDC = migração inicial + sincronização contínua. NOTA: Marque ambas (B e E)."
+      "CORRETO! Full Load + CDC = migração inicial + sincronização contínua."
     ]
   },
   {
@@ -915,7 +915,7 @@ export const simulado3Questions = [
       "ERRADO. Cloud9 é IDE.",
       "ERRADO. CDK é IaC, não executa código.",
       "ERRADO. CloudShell é interativo, não scheduled.",
-      "CORRETO! Lambda executa Python serverless. NOTA: Marque ambas (A e E)."
+      "CORRETO! Lambda executa Python serverless."
     ]
   },
   {
@@ -967,7 +967,7 @@ export const simulado3Questions = [
       "CORRETO! IAM role em A para acessar B.",
       "ERRADO. Direct Connect é on-prem-AWS.",
       "CORRETO! Bucket policy em B grant access ao role de A.",
-      "CORRETO! Crawler precisa apontar para o bucket cross-account. NOTA: Marque B, D e E.",
+      "CORRETO! Crawler precisa apontar para o bucket cross-account.",
       "ERRADO. VPC Endpoint é privacidade interna."
     ]
   },
@@ -1077,7 +1077,7 @@ export const simulado3Questions = [
       "CORRETO! SplitShard aumenta throughput total.",
       "ERRADO. Step Scaling não existe em Kinesis.",
       "ERRADO. Firehose é diferente do Data Streams.",
-      "CORRETO! Enhanced Fan-Out dá 2 MB/s dedicado por consumer. NOTA: Marque ambas (A e D).",
+      "CORRETO! Enhanced Fan-Out dá 2 MB/s dedicado por consumer.",
       "ERRADO. Diminuir piora throughput."
     ]
   },
