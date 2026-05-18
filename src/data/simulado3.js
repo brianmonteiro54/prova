@@ -31,7 +31,7 @@ export const simulado3Questions = [
       "Store data in S3 with AWS KMS server-side encryption (SSE-KMS) (CORRETO)",
       "Implement AWS Glue DataBrew with recipe job to mask PII (CORRETO)"
     ],
-    correct: 3,
+    correct: [3, 4],
     explanations: [
       "ERRADO. Encoding em Data Wrangler é transformação para ML, mas modelo ainda usa PII (encoded).",
       "ERRADO. OpenSearch é overkill — apenas para análise/busca, não para entregar a ML.",
@@ -51,7 +51,7 @@ export const simulado3Questions = [
       "Enable enhanced fan-out functionality on stream",
       "Activate enhanced monitoring on stream"
     ],
-    correct: 0,
+    correct: [0, 1],
     explanations: [
       "CORRETO! Mais shards = mais throughput total disponível para consumir.",
       "CORRETO! Exponential backoff lida com throttling temporário sem perder mensagens. NOTA: Marque ambas.",
@@ -367,7 +367,7 @@ export const simulado3Questions = [
       "Create AWS DataSync task for one-time transfer",
       "Create DMS task in Full load plus CDC mode (CORRETO)"
     ],
-    correct: 1,
+    correct: [1, 4],
     explanations: [
       "ERRADO. CDC only não migra dados existentes — perde estado inicial.",
       "CORRETO! Full transaction log é pré-requisito do CDC para SQL Server.",
@@ -387,7 +387,7 @@ export const simulado3Questions = [
       "Use AWS CloudShell to execute",
       "Use AWS Lambda to execute Python (CORRETO)"
     ],
-    correct: 0,
+    correct: [0, 4],
     explanations: [
       "CORRETO! EventBridge agenda triggers semanais para Lambda — solução serverless.",
       "ERRADO. Cloud9 é IDE, não executa código agendado em produção.",
@@ -550,7 +550,7 @@ export const simulado3Questions = [
       "Enable Enhanced Fan-Out + HTTP/2 retrieval (CORRETO)",
       "Decrease shard count using MergeShard"
     ],
-    correct: 0,
+    correct: [0, 3],
     explanations: [
       "CORRETO! SplitShard divide shard em dois — aumenta throughput total.",
       "ERRADO. Step Scaling não existe em Kinesis Data Streams.",
@@ -889,7 +889,7 @@ export const simulado3Questions = [
       "DataSync one-time transfer",
       "DMS task in Full load + CDC mode (CORRETO)"
     ],
-    correct: 1,
+    correct: [1, 4],
     explanations: [
       "ERRADO. CDC only não migra dados existentes.",
       "CORRETO! Full transaction log é pré-requisito do CDC para SQL Server.",
@@ -909,7 +909,7 @@ export const simulado3Questions = [
       "AWS CloudShell to execute",
       "AWS Lambda to execute (CORRETO)"
     ],
-    correct: 0,
+    correct: [0, 4],
     explanations: [
       "CORRETO! EventBridge agenda triggers semanais para Lambda.",
       "ERRADO. Cloud9 é IDE.",
@@ -1072,7 +1072,7 @@ export const simulado3Questions = [
       "Enhanced Fan-Out + HTTP/2 (CORRETO)",
       "MergeShard"
     ],
-    correct: 0,
+    correct: [0, 3],
     explanations: [
       "CORRETO! SplitShard aumenta throughput total.",
       "ERRADO. Step Scaling não existe em Kinesis.",

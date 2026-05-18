@@ -121,7 +121,7 @@ export const simulado2Questions = [
       "S3 Lifecycle policy to move data >6 months to Glacier Flexible Retrieval",
       "S3 Lifecycle policy to move data >6 months to Glacier Deep Archive (CORRETO)"
     ],
-    correct: 0,
+    correct: [0, 3],
     explanations: [
       "CORRETO! 3 meses recentes em Redshift para queries rápidas, dados de 3-6 meses no S3 acessíveis via Spectrum.",
       "ERRADO. Não é possível UNLOAD direto para Glacier. Spectrum não consulta dados em Glacier.",
@@ -294,7 +294,7 @@ export const simulado2Questions = [
       "Use Amazon QuickSight to visualize access patterns",
       "Increase provisioned read/write capacity"
     ],
-    correct: 1,
+    correct: [1, 2],
     explanations: [
       "ERRADO. Athena analisa S3, não fornece insights diagnóstico em tempo real do DynamoDB.",
       "CORRETO! Contributor Insights identifica os itens/partições mais acessados e throttled — diagnóstico exato.",
@@ -440,7 +440,7 @@ export const simulado2Questions = [
       "Use CSV format when writing to S3",
       "Use AWS DMS with CDC Only"
     ],
-    correct: 0,
+    correct: [0, 2],
     explanations: [
       "CORRETO! Full Load + CDC migra dados existentes E captura mudanças contínuas — ideal para sincronização contínua.",
       "ERRADO. Lambda diário é batch, não captura mudanças contínuas em tempo real.",
@@ -532,7 +532,7 @@ export const simulado2Questions = [
       "S3 Standard-IA for queries with Athena (CORRETO)",
       "Lifecycle to migrate to S3 Glacier Instant Retrieval after 5 years and delete after 15 years"
     ],
-    correct: 2,
+    correct: [2, 3],
     explanations: [
       "ERRADO. S3 Standard é mais caro que IA para acesso pouco frequente.",
       "ERRADO. Intelligent-Tiering tem cobranças de monitoramento desnecessárias quando padrão de acesso é claro.",
@@ -552,7 +552,7 @@ export const simulado2Questions = [
       "Use REINDEX on table to clear lock",
       "Use VACUUM to clean and release lock"
     ],
-    correct: 0,
+    correct: [0, 1],
     explanations: [
       "CORRETO! Identificar PID das sessões que mantêm locks é o primeiro passo.",
       "CORRETO! pg_terminate_backend(pid) encerra a sessão e libera o lock. NOTA: Marque ambas.",
@@ -855,7 +855,7 @@ export const simulado2Questions = [
       "Ensure S3 bucket region matches Athena region (CORRETO)",
       "Reformat CSV to Parquet and use predicate pushdown (CORRETO)"
     ],
-    correct: 3,
+    correct: [3, 4],
     explanations: [
       "ERRADO. Glacier Instant Retrieval tem custo de retrieval alto — não otimiza performance.",
       "ERRADO. Lake Formation adiciona complexidade — não otimiza performance diretamente.",
@@ -875,7 +875,7 @@ export const simulado2Questions = [
       "Identify high CPU queries via RDS Performance Insights (CORRETO)",
       "Schedule weekly manual reboots"
     ],
-    correct: 1,
+    correct: [1, 3],
     explanations: [
       "ERRADO. Mais índices PIORA escritas — não é solução para write-intensive.",
       "CORRETO! Vertical scaling é solução direta para falta de CPU/memória.",
@@ -944,7 +944,7 @@ export const simulado2Questions = [
       "EMR cluster with Hive every 20min",
       "Glue workflow via S3 Event + Lambda triggering crawler + Spark DataFrame to Redshift"
     ],
-    correct: 0,
+    correct: [0, 2],
     explanations: [
       "CORRETO! EventBridge → Glue Workflow com Crawler (detecta mudanças) + Spark Job (transforma e carrega). Solução adaptável.",
       "ERRADO. Sem Crawler, schema changes não são detectadas automaticamente.",
@@ -1085,7 +1085,7 @@ export const simulado2Questions = [
       "Partition S3 data by year/month/day (CORRETO)",
       "Use DynamicFrame schema class in Glue Spark Jobs"
     ],
-    correct: 2,
+    correct: [2, 3],
     explanations: [
       "ERRADO. Flex é para jobs não-urgentes — pode ser interrompido. Não é solução de performance.",
       "ERRADO. Express One Zone é single-AZ — não resolve scan completo.",

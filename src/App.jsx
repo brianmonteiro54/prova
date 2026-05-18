@@ -453,14 +453,44 @@ function HomeScreen({ onSelectSimulado }) {
 function QuizScreen({ simulado, onBack, onFinish }) {
   const questions = simulado.questions;
   const [currentQ, setCurrentQ] = useState(0);
-  const [selected, setSelected] = useState(null);
+  // `selected` is always an array of indices (supports both single and multi-select)
+  const [selected, setSelected] = useState([]);
   const [answered, setAnswered] = useState(false);
   const [answers, setAnswers] = useState([]);
   const [toastVisible, setToastVisible] = useState(false);
 
   const q = questions[currentQ];
-  const correctIdx = q.correct;
-  const isCorrect = selected === correctIdx;
+  // Normalize correct into an array of indices
+  const correctIdxs = Array.isArray(q.correct) ? q.correct : [q.correct];
+  const isMultiSelect = correctIdxs.length > 1;
+  const requiredCount = correctIdxs.length;
+
+  // Correct only if the selected set exactly matches the correct set
+  const isCorrect =
+    selected.length === correctIdxs.length &&
+    selected.every((s) => correctIdxs.includes(s));
+
+  const canSubmit = selected.length === requiredCount;
+
+  const toggleOption = (idx) => {
+    if (answered) return;
+    setSelected((prev) => {
+      if (prev.includes(idx)) {
+        // Deselect
+        return prev.filter((i) => i !== idx);
+      }
+      // For multi-select, cap at requiredCount; if at cap, replace the oldest pick
+      if (isMultiSelect) {
+        if (prev.length >= requiredCount) {
+          // Drop the first (oldest) selection and add this one
+          return [...prev.slice(1), idx];
+        }
+        return [...prev, idx];
+      }
+      // Single-select: just replace
+      return [idx];
+    });
+  };
 
   // Scroll to top on question change
   useEffect(() => {
@@ -482,16 +512,16 @@ function QuizScreen({ simulado, onBack, onFinish }) {
   }, [answered, currentQ]);
 
   const submitAnswer = () => {
-    if (selected === null) return;
+    if (!canSubmit) return;
     setAnswered(true);
     setAnswers([
       ...answers,
       {
         questionId: q.id,
         domain: q.domain,
-        selected,
-        correct: correctIdx,
-        isCorrect: selected === correctIdx,
+        selected: [...selected],
+        correct: [...correctIdxs],
+        isCorrect,
       },
     ]);
     // Scroll to top so user sees the result toast and explanations
@@ -501,7 +531,7 @@ function QuizScreen({ simulado, onBack, onFinish }) {
   const nextQuestion = () => {
     if (currentQ < questions.length - 1) {
       setCurrentQ(currentQ + 1);
-      setSelected(null);
+      setSelected([]);
       setAnswered(false);
     } else {
       onFinish(answers);
@@ -735,8 +765,8 @@ function QuizScreen({ simulado, onBack, onFinish }) {
             }}
           >
             {q.options.map((opt, idx) => {
-              const isSelected = selected === idx;
-              const isCorrectOption = idx === correctIdx;
+              const isSelected = selected.includes(idx);
+              const isCorrectOption = correctIdxs.includes(idx);
               const showAnswer = answered;
 
               let borderColor = "rgba(255,255,255,0.1)";
@@ -777,7 +807,7 @@ function QuizScreen({ simulado, onBack, onFinish }) {
               return (
                 <button
                   key={idx}
-                  onClick={() => !answered && setSelected(idx)}
+                  onClick={() => toggleOption(idx)}
                   disabled={answered}
                   style={{
                     width: "100%",
@@ -877,28 +907,60 @@ function QuizScreen({ simulado, onBack, onFinish }) {
 
           {/* Action buttons */}
           {!answered ? (
-            <button
-              onClick={submitAnswer}
-              disabled={selected === null}
-              style={{
-                width: "100%",
-                padding: "14px 20px",
-                background:
-                  selected !== null
+            <>
+              {isMultiSelect && (
+                <div
+                  style={{
+                    background: "rgba(255, 153, 0, 0.08)",
+                    border: "1px solid rgba(255, 153, 0, 0.3)",
+                    borderRadius: 10,
+                    padding: "10px 14px",
+                    marginBottom: 12,
+                    fontSize: 13,
+                    color: "#fbbf24",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                  }}
+                >
+                  <span style={{ fontSize: 16 }}>⚠️</span>
+                  <span>
+                    <strong>Selecione {requiredCount} opções.</strong>{" "}
+                    Você marcou <strong>{selected.length}</strong> de{" "}
+                    <strong>{requiredCount}</strong>.
+                  </span>
+                </div>
+              )}
+              <button
+                onClick={submitAnswer}
+                disabled={!canSubmit}
+                style={{
+                  width: "100%",
+                  padding: "14px 20px",
+                  background: canSubmit
                     ? "linear-gradient(135deg, #FF9900 0%, #e68a00 100%)"
                     : "rgba(255,255,255,0.05)",
-                color: selected !== null ? "#000" : "#64748b",
-                border: "none",
-                borderRadius: 10,
-                fontSize: 15,
-                fontWeight: 700,
-                cursor: selected !== null ? "pointer" : "not-allowed",
-                transition: "all 0.2s",
-                letterSpacing: 0.3,
-              }}
-            >
-              {selected !== null ? "Confirmar Resposta →" : "Selecione uma opção"}
-            </button>
+                  color: canSubmit ? "#000" : "#64748b",
+                  border: "none",
+                  borderRadius: 10,
+                  fontSize: 15,
+                  fontWeight: 700,
+                  cursor: canSubmit ? "pointer" : "not-allowed",
+                  transition: "all 0.2s",
+                  letterSpacing: 0.3,
+                }}
+              >
+                {canSubmit
+                  ? "Confirmar Resposta →"
+                  : isMultiSelect
+                    ? `Selecione ${requiredCount - selected.length} ${
+                        requiredCount - selected.length === 1
+                          ? "opção a mais"
+                          : "opções a mais"
+                      }`
+                    : "Selecione uma opção"}
+              </button>
+            </>
           ) : (
             <>
               {/* Fixed toast at top of viewport - auto-dismisses after 3.5s */}
@@ -973,7 +1035,13 @@ function QuizScreen({ simulado, onBack, onFinish }) {
                     >
                       {isCorrect
                         ? "Veja as explicações em cada alternativa abaixo."
-                        : `A alternativa correta é ${String.fromCharCode(65 + correctIdx)}.`}
+                        : `${
+                            correctIdxs.length > 1
+                              ? "As alternativas corretas são"
+                              : "A alternativa correta é"
+                          } ${correctIdxs
+                            .map((i) => String.fromCharCode(65 + i))
+                            .join(" e ")}.`}
                     </div>
                   </div>
                   <button

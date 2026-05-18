@@ -341,7 +341,7 @@ export const simulado4Questions = [
       "Persist intermediate DataFrames using df.cache() to disk (CORRETO)",
       "Increase the timeout"
     ],
-    correct: 0,
+    correct: [0, 3],
     explanations: [
       "CORRETO! G.2X tem 32 GB e G.4X tem 64 GB de memória por worker (vs 16 GB do G.1X). Resolve OOM em workloads pesados.",
       "ERRADO. Reduzir partições aumenta dados por executor, piorando OOM.",
