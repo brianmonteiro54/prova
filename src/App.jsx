@@ -960,11 +960,11 @@ function QuizScreen({ simulado, onBack, onFinish }) {
             </>
           ) : (
             <>
-              {/* Discreet toast in bottom-right corner — auto-dismisses after 3.5s */}
+              {/* Discreet toast in top-right corner — auto-dismisses after 3.5s */}
               <div
                 style={{
                   position: "fixed",
-                  bottom: 20,
+                  top: 20,
                   right: 20,
                   zIndex: 1000,
                   width: "calc(100% - 40px)",
