@@ -28,8 +28,8 @@ export const simulado3Questions = [
       "Load data into SageMaker Data Wrangler to encode PII",
       "Deliver data to OpenSearch encrypted with AWS KMS",
       "Use EMR with custom scripts to mask PII",
-      "Store data in S3 with AWS KMS server-side encryption (SSE-KMS) (CORRETO)",
-      "Implement AWS Glue DataBrew with recipe job to mask PII (CORRETO)"
+      "Store data in S3 with AWS KMS server-side encryption (SSE-KMS)",
+      "Implement AWS Glue DataBrew with recipe job to mask PII"
     ],
     correct: [3, 4],
     explanations: [
@@ -45,8 +45,8 @@ export const simulado3Questions = [
     en: "Kinesis Data Stream consumer on EC2 has ProvisionedThroughputExceededException errors. Which actions resolve this? (Select TWO)",
     pt: "Consumer Kinesis Data Stream em EC2 com erros ProvisionedThroughputExceededException. Quais ações resolvem? (Selecione DUAS)",
     options: [
-      "Increase shard count of Kinesis data stream (CORRETO)",
-      "Implement exponential backoff and retry logic in application (CORRETO)",
+      "Increase shard count of Kinesis data stream",
+      "Implement exponential backoff and retry logic in application",
       "Use a larger EC2 instance type",
       "Enable enhanced fan-out functionality on stream",
       "Activate enhanced monitoring on stream"
@@ -362,10 +362,10 @@ export const simulado3Questions = [
     pt: "Migração AWS DMS de SQL Server on-prem para RDS SQL Server com replicação contínua. Quais ações? (Selecione DUAS)",
     options: [
       "Create DMS task in CHANGE DATA CAPTURE (CDC) only mode",
-      "Turn on full transaction log on on-prem SQL Server (CORRETO)",
+      "Turn on full transaction log on on-prem SQL Server",
       "Use AWS SCT to convert source schema",
       "Create AWS DataSync task for one-time transfer",
-      "Create DMS task in Full load plus CDC mode (CORRETO)"
+      "Create DMS task in Full load plus CDC mode"
     ],
     correct: [1, 4],
     explanations: [
@@ -381,11 +381,11 @@ export const simulado3Questions = [
     en: "Run Python every Monday 9 AM UTC to analyze customer behavior in S3. Operational efficiency. Two suitable options? (Select TWO)",
     pt: "Rodar Python toda segunda 9h UTC para analisar comportamento em S3. Eficiência operacional. Duas opções adequadas? (Selecione DUAS)",
     options: [
-      "Use EventBridge to execute Python every Monday 9 AM UTC (CORRETO)",
+      "Use EventBridge to execute Python every Monday 9 AM UTC",
       "Use AWS Cloud9 to write/run/debug",
       "Use AWS CDK to provision via CloudFormation",
       "Use AWS CloudShell to execute",
-      "Use AWS Lambda to execute Python (CORRETO)"
+      "Use AWS Lambda to execute Python"
     ],
     correct: [0, 4],
     explanations: [
@@ -433,10 +433,10 @@ export const simulado3Questions = [
     pt: "Glue Crawler na Conta A para catalogar VPC flow logs em S3 da Conta B. Requisitos cross-account? (Selecione TRÊS)",
     options: [
       "AWS Resource Access Manager to share bucket",
-      "IAM role in Account A with permissions to access Account B's bucket (CORRETO)",
+      "IAM role in Account A with permissions to access Account B's bucket",
       "Direct Connect between accounts",
-      "S3 bucket policy in Account B granting access to Account A's IAM role (CORRETO)",
-      "Update Glue crawler config to target Account B's bucket (CORRETO)",
+      "S3 bucket policy in Account B granting access to Account A's IAM role",
+      "Update Glue crawler config to target Account B's bucket",
       "VPC Endpoint for S3 in Account B"
     ],
     correct: 1,
@@ -544,10 +544,10 @@ export const simulado3Questions = [
     en: "Kinesis Data Stream from sales scaled. ProvisionedThroughputExceededException errors. Real-time processing. Actions? (Select TWO)",
     pt: "Kinesis Data Stream de vendas escalado. Erros ProvisionedThroughputExceededException. Processamento real-time. Ações? (Selecione DUAS)",
     options: [
-      "Increase shard count using SplitShard (CORRETO)",
+      "Increase shard count using SplitShard",
       "Implement Step Scaling on Data Stream",
       "Replace stream with Data Firehose",
-      "Enable Enhanced Fan-Out + HTTP/2 retrieval (CORRETO)",
+      "Enable Enhanced Fan-Out + HTTP/2 retrieval",
       "Decrease shard count using MergeShard"
     ],
     correct: [0, 3],
@@ -884,10 +884,10 @@ export const simulado3Questions = [
     pt: "Migração DMS SQL Server on-prem para RDS SQL Server com replicação contínua. Duas ações? (Selecione DUAS)",
     options: [
       "DMS task in CDC only mode",
-      "Turn on full transaction log on on-prem (CORRETO)",
+      "Turn on full transaction log on on-prem",
       "Use AWS SCT to convert schema",
       "DataSync one-time transfer",
-      "DMS task in Full load + CDC mode (CORRETO)"
+      "DMS task in Full load + CDC mode"
     ],
     correct: [1, 4],
     explanations: [
@@ -903,11 +903,11 @@ export const simulado3Questions = [
     en: "Run Python every Monday 9 AM UTC for behavior analysis in S3. Two suitable? (Select TWO)",
     pt: "Rodar Python toda segunda 9h UTC para análise de comportamento em S3. Duas adequadas? (Selecione DUAS)",
     options: [
-      "EventBridge for scheduling (CORRETO)",
+      "EventBridge for scheduling",
       "Cloud9 for write/run/debug",
       "AWS CDK for IaC",
       "AWS CloudShell to execute",
-      "AWS Lambda to execute (CORRETO)"
+      "AWS Lambda to execute"
     ],
     correct: [0, 4],
     explanations: [
@@ -955,10 +955,10 @@ export const simulado3Questions = [
     pt: "Glue Crawler na Conta A para catalogar VPC flow logs em S3 da Conta B. Três ações? (Selecione TRÊS)",
     options: [
       "RAM to share bucket",
-      "IAM role in A with permissions to B's bucket (CORRETO)",
+      "IAM role in A with permissions to B's bucket",
       "Direct Connect between accounts",
-      "Bucket policy in B for A's role (CORRETO)",
-      "Update crawler to target B's bucket (CORRETO)",
+      "Bucket policy in B for A's role",
+      "Update crawler to target B's bucket",
       "VPC Endpoint in B"
     ],
     correct: 1,
@@ -1066,10 +1066,10 @@ export const simulado3Questions = [
     en: "Sales spike, Kinesis Data Stream errors. Real-time. Actions? (Select TWO)",
     pt: "Pico vendas, Kinesis Data Stream erros. Real-time. Ações? (Selecione DUAS)",
     options: [
-      "Increase shard count via SplitShard (CORRETO)",
+      "Increase shard count via SplitShard",
       "Step Scaling on stream",
       "Replace with Firehose",
-      "Enhanced Fan-Out + HTTP/2 (CORRETO)",
+      "Enhanced Fan-Out + HTTP/2",
       "MergeShard"
     ],
     correct: [0, 3],

@@ -116,10 +116,10 @@ export const simulado2Questions = [
     en: "A manufacturing company uses S3 as data lake. Sales team analyzes last 3 months frequently. Generates semi-annual report with 6 months of data. Data older than 6 months has no further access but must be retained. Which solutions meet requirements MOST cost-effectively? (Select TWO)",
     pt: "Uma empresa manufatura usa S3 como data lake. Equipe de vendas analisa últimos 3 meses frequentemente. Gera relatório semestral com 6 meses. Dados com mais de 6 meses não terão acesso mas devem ser retidos. Quais soluções atendem com MAIOR economia? (Selecione DUAS)",
     options: [
-      "Copy last 3 months to Redshift and unload older data to S3. Use Redshift Spectrum for 6-month analysis (CORRETO)",
+      "Copy last 3 months to Redshift and unload older data to S3. Use Redshift Spectrum for 6-month analysis",
       "Copy last 3 months to Redshift and unload to Glacier Instant Retrieval. Use Spectrum for 6-month analysis",
       "S3 Lifecycle policy to move data >6 months to Glacier Flexible Retrieval",
-      "S3 Lifecycle policy to move data >6 months to Glacier Deep Archive (CORRETO)"
+      "S3 Lifecycle policy to move data >6 months to Glacier Deep Archive"
     ],
     correct: [0, 3],
     explanations: [
@@ -188,11 +188,11 @@ export const simulado2Questions = [
     en: "Application sends data to SQS, multiple ECS tasks consume messages. Engineer must ensure each message is processed once. Which events lead to message removal? (Select THREE)",
     pt: "Aplicação envia dados para SQS, múltiplas tarefas ECS consomem mensagens. Engenheiro deve garantir que cada mensagem seja processada uma vez. Quais eventos removem mensagens? (Selecione TRÊS)",
     options: [
-      "The maxReceiveCount for a message was exceeded (CORRETO)",
-      "A purge operation was performed on the queue (CORRETO)",
+      "The maxReceiveCount for a message was exceeded",
+      "A purge operation was performed on the queue",
       "An application receives a message without deleting it",
       "The visibility timeout expires on a message",
-      "A DeleteMessage API call was made (CORRETO)"
+      "A DeleteMessage API call was made"
     ],
     correct: 0,
     explanations: [
@@ -289,8 +289,8 @@ export const simulado2Questions = [
     pt: "Tabela DynamoDB de inventário real-time tem itens throttled em pico. Precisa monitorar padrões de acesso, tendências de tráfego e identificar partition keys quentes. Quais passos? (Selecione DUAS)",
     options: [
       "Use Amazon Athena to analyze access patterns",
-      "Use CloudWatch Contributor Insights to find most accessed/throttled items (CORRETO)",
-      "Redesign DynamoDB table with high cardinality key for even distribution (CORRETO)",
+      "Use CloudWatch Contributor Insights to find most accessed/throttled items",
+      "Redesign DynamoDB table with high cardinality key for even distribution",
       "Use Amazon QuickSight to visualize access patterns",
       "Increase provisioned read/write capacity"
     ],
@@ -434,9 +434,9 @@ export const simulado2Questions = [
     en: "On-prem MySQL replicating to S3, ongoing changes must be reflected. Which solutions? (Select TWO)",
     pt: "MySQL on-premises replicando para S3, mudanças contínuas devem ser refletidas. Quais soluções? (Selecione DUAS)",
     options: [
-      "Use AWS DMS to migrate database to S3 with Full Load + CDC (CORRETO)",
+      "Use AWS DMS to migrate database to S3 with Full Load + CDC",
       "Use AWS Lambda for daily replication",
-      "Use Apache Parquet format when writing to S3 (CORRETO)",
+      "Use Apache Parquet format when writing to S3",
       "Use CSV format when writing to S3",
       "Use AWS DMS with CDC Only"
     ],
@@ -528,8 +528,8 @@ export const simulado2Questions = [
     options: [
       "S3 Standard for new data + Athena for queries",
       "S3 Intelligent-Tiering automatically managing access",
-      "Lifecycle to migrate to S3 Glacier Flexible Retrieval after 5 years and delete after 15 years (CORRETO)",
-      "S3 Standard-IA for queries with Athena (CORRETO)",
+      "Lifecycle to migrate to S3 Glacier Flexible Retrieval after 5 years and delete after 15 years",
+      "S3 Standard-IA for queries with Athena",
       "Lifecycle to migrate to S3 Glacier Instant Retrieval after 5 years and delete after 15 years"
     ],
     correct: [2, 3],
@@ -546,8 +546,8 @@ export const simulado2Questions = [
     en: "Glue ETL job uses TRUNCATE before insert. Jobs hang due to AccessShareLock from rogue queries. How to resolve? (Select TWO)",
     pt: "Job Glue ETL usa TRUNCATE antes do insert. Jobs travam por AccessShareLock de queries indevidas. Como resolver? (Selecione DUAS)",
     options: [
-      "Run query to identify sessions holding locks (CORRETO)",
-      "Use pg_terminate_backend to terminate locking session (CORRETO)",
+      "Run query to identify sessions holding locks",
+      "Use pg_terminate_backend to terminate locking session",
       "Use EXPLAIN to analyze query execution plan",
       "Use REINDEX on table to clear lock",
       "Use VACUUM to clean and release lock"
@@ -852,8 +852,8 @@ export const simulado2Questions = [
       "Store CSV in S3 Glacier Instant Retrieval with random prefix",
       "Implement data lake with Lake Formation",
       "Lifecycle to archive older CSV to Glacier",
-      "Ensure S3 bucket region matches Athena region (CORRETO)",
-      "Reformat CSV to Parquet and use predicate pushdown (CORRETO)"
+      "Ensure S3 bucket region matches Athena region",
+      "Reformat CSV to Parquet and use predicate pushdown"
     ],
     correct: [3, 4],
     explanations: [
@@ -870,9 +870,9 @@ export const simulado2Questions = [
     pt: "Pico em vendas causa atrasos no RDS SQL Server. Workload de escrita intensa. Como resolver alta CPU? (Selecione DUAS)",
     options: [
       "Add more tables and indexes",
-      "Transition to DB instance with greater CPU/memory (CORRETO)",
+      "Transition to DB instance with greater CPU/memory",
       "Cache database queries",
-      "Identify high CPU queries via RDS Performance Insights (CORRETO)",
+      "Identify high CPU queries via RDS Performance Insights",
       "Schedule weekly manual reboots"
     ],
     correct: [1, 3],
@@ -938,9 +938,9 @@ export const simulado2Questions = [
     en: "Pipeline ingests CSV/JSON/Parquet from 10 sources every 20min, schemas may change. Pipeline must adapt and load to Redshift. Which solutions effective? (Select TWO)",
     pt: "Pipeline ingere CSV/JSON/Parquet de 10 fontes a cada 20min, schemas podem mudar. Pipeline deve se adaptar e carregar no Redshift. Quais efetivas? (Selecione DUAS)",
     options: [
-      "Glue workflow every 20min via EventBridge. Crawler detects changes + Spark DataFrame loads to Redshift (CORRETO)",
+      "Glue workflow every 20min via EventBridge. Crawler detects changes + Spark DataFrame loads to Redshift",
       "Glue job every 20min via EventBridge Schedule. Spark DataFrame loads to Redshift",
-      "Two Lambdas: trigger crawler on S3 upload + Spark DataFrame ETL to Redshift (CORRETO)",
+      "Two Lambdas: trigger crawler on S3 upload + Spark DataFrame ETL to Redshift",
       "EMR cluster with Hive every 20min",
       "Glue workflow via S3 Event + Lambda triggering crawler + Spark DataFrame to Redshift"
     ],
@@ -977,7 +977,7 @@ export const simulado2Questions = [
     pt: "Data warehouse Redshift, não pode expandir (custo). Algumas tabelas enormes, outras pequenas e raramente atualizadas. MELHOR distribuição?",
     options: [
       "Define keys with EVEN distribution across all tables",
-      "Change small tables to ALL distribution + define primary/foreign keys (CORRETO)",
+      "Change small tables to ALL distribution + define primary/foreign keys",
       "Change small tables to KEY distribution",
       "Change large tables to ALL distribution"
     ],
@@ -1081,8 +1081,8 @@ export const simulado2Questions = [
     options: [
       "Change Glue Jobs execution class to Flex",
       "Change S3 storage class to S3 Express One Zone",
-      "Modify Glue Job worker type to larger instance type (CORRETO)",
-      "Partition S3 data by year/month/day (CORRETO)",
+      "Modify Glue Job worker type to larger instance type",
+      "Partition S3 data by year/month/day",
       "Use DynamicFrame schema class in Glue Spark Jobs"
     ],
     correct: [2, 3],
@@ -1118,9 +1118,9 @@ export const simulado2Questions = [
     pt: "Queries Athena entregues a S3 via QuickSight dashboard falham com erro de permissão. Quais as causas subjacentes? (Selecione TRÊS)",
     options: [
       "QuickSight has no configured connection to Athena",
-      "QuickSight not authorized to decrypt S3 data (CORRETO)",
-      "QuickSight not authorized to access S3 bucket (CORRETO)",
-      "Engineer's IAM user lacks read/write access to S3 bucket (CORRETO)",
+      "QuickSight not authorized to decrypt S3 data",
+      "QuickSight not authorized to access S3 bucket",
+      "Engineer's IAM user lacks read/write access to S3 bucket",
       "Athena query optimization not configured",
       "Athena tables not properly cataloged"
     ],

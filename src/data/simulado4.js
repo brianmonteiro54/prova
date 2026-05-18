@@ -335,10 +335,10 @@ export const simulado4Questions = [
     en: "A data engineer needs to debug a failed Glue ETL job. The job logs show 'Out of Memory' errors. Which actions should they take? (Select TWO)",
     pt: "Engenheiro debug Glue ETL falhou com 'Out of Memory'. Quais ações tomar? (Selecione DUAS)",
     options: [
-      "Switch to G.2X or G.4X worker type for more memory (CORRETO)",
+      "Switch to G.2X or G.4X worker type for more memory",
       "Reduce partitions to lower memory pressure",
       "Enable job bookmarks",
-      "Persist intermediate DataFrames using df.cache() to disk (CORRETO)",
+      "Persist intermediate DataFrames using df.cache() to disk",
       "Increase the timeout"
     ],
     correct: [0, 3],
